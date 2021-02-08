@@ -55,12 +55,7 @@ int SPI::Read(void *rx_data) {
 
 int SPI::transfer(void *tx_data, void *rx_data, unsigned int len) {
   struct spi_ioc_transfer spi;
-
-  // Mentioned in spidev.h but not used in the original kernel documentation
-  //	test program )-:
-
   memset(&spi, 0, sizeof(spi));
-
   spi.tx_buf = (unsigned long)tx_data;
   spi.rx_buf = (unsigned long)rx_data;
   spi.len = len;
