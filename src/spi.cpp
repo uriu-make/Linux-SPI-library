@@ -1,21 +1,18 @@
 #include "spi.h"
 
-SPI::SPI(const char *device) {
+SPI::SPI(const char *device, int mode, unsigned int freq) {
   this->device = device;
-  this->port = port;
   this->bits = 8;
+  this->mode = mode;
+  this->freq = freq;
+  this->usecs = 0;
 }
-SPI::SPI() {}
 
 int SPI::Setup() {
   fd = open(device, O_RDWR);
-  return fd;
-}
-
-int SPI::Setup(const char *device) {
-  this->device = device;
-  this->port = port;
-  fd = open(device, O_RDWR);
+  this->setMode(mode);
+  this->setClock(freq);
+  this->setDelay(usecs);
   return fd;
 }
 
@@ -49,8 +46,8 @@ int SPI::Write(void *tx_data, int length) {
   return write(fd, tx_data, length);
 }
 
-int SPI::Read(void *rx_data) {
-  return read(fd, rx_data, rx_size);
+int SPI::Read(void *rx_data, int length) {
+  return read(fd, rx_data, length);
 }
 
 int SPI::transfer(void *tx_data, void *rx_data, unsigned int len) {
@@ -61,8 +58,7 @@ int SPI::transfer(void *tx_data, void *rx_data, unsigned int len) {
   spi.len = len;
   spi.delay_usecs = usecs;
   spi.speed_hz = freq;
-  spi.tx_nbits = tx_size;
-  spi.rx_nbits = rx_size;
+  spi.bits_per_word = bits;
 
   return ioctl(fd, SPI_IOC_MESSAGE(1), &spi);
 }

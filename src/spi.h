@@ -6,10 +6,9 @@
 #include <unistd.h>
 #include <asm/ioctl.h>
 #include <string.h>
-#include <string>
 
-#define SPI0 "/dev/spidev0.0"
-#define SPI1 "/dev/spidev0.1"
+#define SPI0_0 "/dev/spidev0.0"
+#define SPI0_1 "/dev/spidev0.1"
 #define MODE_0 0
 #define MODE_1 1
 #define MODE_2 2
@@ -17,29 +16,26 @@
 #define LSBFIRST 0
 #define MSBFIRST 1
 
-using namespace std;
-
 class SPI {
  public:
-  SPI(const char *device);
-  SPI();
+  SPI(const char *device, int mode, unsigned int freq);
   int Setup(void);
   int Setup(const char *device);
+  int Setup(const char *device, int mode, unsigned int freq);
   int setMode(int mode);
   int setClock(unsigned int freq);
   int setBitOrder(int order);
   void setDelay(unsigned short usecs);
   int Write(void *tx_data, int length);
-  int Read(void *rx_data);
+  int Read(void *rx_data, int length);
   int transfer(void *tx_data, void *rx_data, size_t length);
   int Close(void);
 
  private:
-  int fd, port;
+  int fd,mode;
   unsigned int freq;
   unsigned short usecs;
   const char *device;
   unsigned char bits;
-  size_t tx_size, rx_size;
 };
 #endif
