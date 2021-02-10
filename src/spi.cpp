@@ -53,8 +53,8 @@ int SPI::Read(void *rx_data, int length) {
 int SPI::transfer(void *tx_data, void *rx_data, unsigned int len) {
   struct spi_ioc_transfer spi;
   memset(&spi, 0, sizeof(spi));
-  spi.tx_buf = (unsigned long)tx_data;
-  spi.rx_buf = (unsigned long)rx_data;
+  spi.tx_buf = (unsigned long long)tx_data;
+  spi.rx_buf = (unsigned long long)rx_data;
   spi.len = len;
   spi.delay_usecs = usecs;
   spi.speed_hz = freq;
