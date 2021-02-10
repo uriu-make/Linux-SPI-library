@@ -9,7 +9,7 @@ int adc_pin = 0;
 int single = 1;
 
 int main() {
-  unsigned char buff[2] = {0};
+  unsigned char buff[3] = {0};
   unsigned char data[3] = {0};
   buff[0] = 0b00000100 | (adc_pin >> 2) | single << 1;
   buff[1] = adc_pin << 6;
