@@ -3,7 +3,8 @@
 SPI::SPI(const char *device, int mode, unsigned int freq)
 ```
 **device Name of the SPI to be used (example "/dev/spidev0.0").\
-**mode SPI mode (MODE_0,MODE_1,MODE_2,MODE_3)\
+**mode SPI mode (MODE_0,MODE_1,MODE_2,MODE_3).\
+**freq SPI speed(Hz).\
 ```
 int SPI::Setup(void);
 ```
