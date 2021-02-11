@@ -2,6 +2,7 @@
 ```
 SPI::SPI(const char *device, int mode, unsigned int freq)
 ```
+**device Name of the SPI to be used (example "/dev/spidev0.0").\
 ```
 int SPI::Setup(void);
 ```
