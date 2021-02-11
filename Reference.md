@@ -10,12 +10,6 @@ int SPI::Setup(void);
 ```
 Setup SPI device.
 ```
-int SPI::Setup(const char *device);
-```
-```
-int SPI::Setup(const char *device, int mode, unsigned int freq);
-```
-```
 int SPI::setMode(int mode);
 ```
 ```
