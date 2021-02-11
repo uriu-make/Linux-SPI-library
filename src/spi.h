@@ -20,8 +20,6 @@ class SPI {
  public:
   SPI(const char *device, int mode, unsigned int freq);
   int Setup(void);
-  int Setup(const char *device);
-  int Setup(const char *device, int mode, unsigned int freq);
   int setMode(int mode);
   int setClock(unsigned int freq);
   int setBitOrder(int order);
