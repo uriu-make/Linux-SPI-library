@@ -28,15 +28,15 @@ void SPI::setDelay(unsigned short usecs);
 ```
 int SPI::Write(void *tx_data, int length);
 ```
-
+half duplex
 ```
 int SPI::Read(void *rx_data, int length);
 ```
-
+half duplex
 ```
 int SPI::transfer(void *tx_data, void *rx_data, size_t length);
 ```
-
+duplex
 ```
 int SPI::Close(void);
 ```
