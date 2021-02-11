@@ -4,5 +4,5 @@ To install
 ```sh
 make install
 ```
-<!-- ## Reference
-[Reference](Reference.md) -->
+## Reference
+[Reference](Reference.md)
