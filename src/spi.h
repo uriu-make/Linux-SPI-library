@@ -30,7 +30,7 @@ class SPI {
   int Close(void);
 
  private:
-  int fd,mode;
+  int fd, mode;
   unsigned int freq;
   unsigned short usecs;
   const char *device;
