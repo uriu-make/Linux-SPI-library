@@ -26,18 +26,29 @@ Setup Bit Order (LSB_FIRST / MSB_FIRST)
 ```
 void SPI::setDelay(unsigned short usecs);
 ```
+Set output and input delays for SPI.\
+**usecs** Delay time (μs)
 ```
 int SPI::Write(void *tx_data, int length);
 ```
-half duplex
+Data output via half-duplex communication.\
+**tx_data** Data to be Send.\
+**length** Data size (byte)
 ```
 int SPI::Read(void *rx_data, int length);
 ```
-half duplex
+Data intput via half-duplex communication.\
+**rx_data** Data to be received.\
+**length** Data size (byte)
 ```
 int SPI::transfer(void *tx_data, void *rx_data, size_t length);
 ```
-duplex
+Data input and output via full-duplex communication.\
+**tx_data** Data to be Send.\
+**rx_data** Data to be received.\
+**length** Data size (byte)\
+The "length" is the size of the data to be sent or received at one time.
 ```
 int SPI::Close(void);
 ```
+Close the device.

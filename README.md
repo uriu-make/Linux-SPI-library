@@ -10,4 +10,4 @@ make MCP3208
 ./example/MCP3208.o
 ```
 ## Reference
-<!-- [Reference](Reference.md) -->
+[Reference](Reference.md)
